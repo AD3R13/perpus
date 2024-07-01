@@ -31,8 +31,9 @@
 <script src="{{ asset('assets/kai/assets/js/kaiadmin.min.js') }}"></script>
 
 <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-{{-- <script src="{{ asset('assets/kai/assets/js/setting-demo.js') }}"></script>
-<script src="{{ asset('assets/kai/assets/js/demo.js') }}"></script>
+<script src="{{ asset('assets/kai/assets/js/setting-demo.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+{{-- <script src="{{ asset('assets/kai/assets/js/demo.js') }}"></script>
 <script>
     $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
         type: "line",

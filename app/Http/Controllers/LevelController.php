@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Level;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LevelController extends Controller
 {
@@ -30,7 +31,8 @@ class LevelController extends Controller
     public function store(Request $request)
     {
         Level::create($request->all());
-        return redirect()->to('level');
+        Alert::success('Data berhasil ditambah', 'Success Message!');
+        return redirect()->to('level')->with('success', 'Berhasil ditambah');
     }
 
     /**
@@ -59,7 +61,8 @@ class LevelController extends Controller
             "nama_level" => $request->nama_level,
             "keterangan" => $request->keterangan
         ]);
-        return redirect()->to('level');
+        Alert::info('Data telah diubah', 'Success Message!');
+        return redirect()->to('level')->with('info', 'Berhasil diubah');
     }
 
     /**
@@ -68,6 +71,7 @@ class LevelController extends Controller
     public function destroy(string $id)
     {
         Level::where('id', $id)->delete();
-        return redirect()->to('level');
+        toast('Data berhasil dihapus', 'success');
+        return redirect()->to('level')->with('success', 'Berhasil dihapus');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class JurusanController extends Controller
 {
@@ -30,7 +31,8 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         Jurusan::create($request->all());
-        return redirect()->to('jurusan');
+        Alert::success('Data berhasil ditambah', 'Success Message!');
+        return redirect()->to('jurusan')->with('success', 'Berhasil ditambah');
     }
 
     /**
@@ -58,7 +60,8 @@ class JurusanController extends Controller
         Jurusan::where('id', $id)->update([
             "nama_jurusan" => $request->nama_level
         ]);
-        return redirect()->to('jurusan');
+        Alert::info('Data telah diubah', 'Success Message!');
+        return redirect()->to('jurusan')->with('info', 'Berhasil diubah');
     }
 
     /**
@@ -67,6 +70,7 @@ class JurusanController extends Controller
     public function destroy(string $id)
     {
         Jurusan::where('id', $id)->delete();
-        return redirect()->to('level');
+        toast('Data berhasil dihapus', 'success');
+        return redirect()->to('level')->with('success', 'Berhasil dihapus');
     }
 }

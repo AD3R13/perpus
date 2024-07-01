@@ -129,6 +129,41 @@
         </div>
         <!--   Core JS Files   -->
         @include('layouts.inc.js')
+        @include('sweetalert::alert')
+        <script>
+            $('.show_confirm').click(function(event) {
+                let form = $(this).closest("form");
+                let name = $(this).data("name");
+
+                event.preventDefault();
+                const swalButton = swal.mixin({
+                    customClass: {
+                        confirmButton: 'btn btn-success',
+                        cancelButton: 'btn btn-danger mr-2',
+                    },
+                    buttonsStyling: false,
+                });
+                swalButton.fire({
+                    title: 'Apakah anda yakin?',
+                    text: "akan menghapus data ini?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Hapus!',
+                    cancelButtonText: 'Tidak, Dibatalkan?',
+                    reverseButtons: true,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    } else if (result.dismiss === swal.Button.getDismissReason.cancel) {
+                        swalButton.fire(
+                            'Dibatalkan',
+                            'Data Anda aman :)',
+                            'error'
+                        )
+                    }
+                });
+            });
+        </script>
 </body>
 
 </html>

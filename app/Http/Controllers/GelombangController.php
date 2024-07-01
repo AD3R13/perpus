@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gelombang;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class GelombangController extends Controller
 {
@@ -30,7 +31,8 @@ class GelombangController extends Controller
     public function store(Request $request)
     {
         Gelombang::create($request->all());
-        return redirect()->to('gelombang');
+        Alert::success('Data berhasil ditambah', 'Success Message!');
+        return redirect()->to('gelombang')->with('success', 'Berhasil ditambah');
     }
 
     /**
@@ -58,7 +60,8 @@ class GelombangController extends Controller
         Gelombang::where('id', $id)->update([
             "nama_gelombang" => $request->nama_gelombang
         ]);
-        return redirect()->to('gelombang');
+        Alert::info('Data telah diubah', 'Success Message!');
+        return redirect()->to('gelombang')->with('info', 'Berhasil diubah');
     }
 
     /**
@@ -67,6 +70,7 @@ class GelombangController extends Controller
     public function destroy(string $id)
     {
         Gelombang::where('id', $id)->delete();
-        return redirect()->to('gelombang');
+        toast('Data berhasil dihapus', 'success');
+        return redirect()->to('gelombang')->with('success', 'Berhasil dihapus');
     }
 }

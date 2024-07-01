@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="">Keterangan</label>
-                                    <textarea type="text" name="keterangan" class="form-control" value=""></textarea>
+                                    <textarea type="text" name="keterangan" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <input type="submit" class="btn btn-primary" value="Simpan">

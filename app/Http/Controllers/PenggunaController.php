@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Level;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PenggunaController extends Controller
 {
@@ -29,7 +30,8 @@ class PenggunaController extends Controller
     public function store(Request $request)
     {
         User::create($request->all());
-        return redirect()->to('pengguna');
+        Alert::success('Daftar berhasil', 'Success Message!');
+        return redirect()->to('pengguna')->with('success', 'Daftar berhasil');
     }
 
     /**
@@ -50,7 +52,8 @@ class PenggunaController extends Controller
             "id_level" => $request->id_level,
             "password" => bcrypt($request->password)
         ]);
-        return redirect()->to('pengguna');
+        Alert::info('Data telah diubah', 'Success Message!');
+        return redirect()->to('pengguna')->with('info', 'Berhasil diubah');
     }
     /**
      * Display the specified resource.
@@ -66,6 +69,7 @@ class PenggunaController extends Controller
     public function destroy(string $id)
     {
         User::where('id', $id)->delete();
-        return redirect()->to('pengguna');
+        toast('Data berhasil di hapus', 'success');
+        return redirect()->to('pengguna')->with('success', 'Berhasil dihapus');
     }
 }

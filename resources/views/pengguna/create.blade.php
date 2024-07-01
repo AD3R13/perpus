@@ -41,7 +41,7 @@
                                         aria-label="Default select example">
                                         <option selected>Choose a usertype</option>
                                         @foreach ($level as $data)
-                                            <option value="{{ $data->id }}">{{ $data->nama_level }}</option>
+                                            <option value="{{ $data->id }}" required>{{ $data->nama_level }}</option>
                                         @endforeach
                                     </select>
                                 </div>

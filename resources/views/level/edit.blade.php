@@ -23,6 +23,10 @@
                                         class="form-control" required value="">
                                 </div>
                                 <div class="form-group mb-3">
+                                    <label for="">Keterangan</label>
+                                    <textarea type="text" name="keterangan" class="form-control" value=""></textarea>
+                                </div>
+                                <div class="form-group mb-3">
                                     <input type="submit" class="btn btn-primary" value="Simpan">
                                     <a href="{{ url()->previous() }}" class="btn btn-danger">Kembali</a>
                                 </div>

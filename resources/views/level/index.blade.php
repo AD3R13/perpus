@@ -21,6 +21,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Level</th>
+                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -29,6 +30,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $data->nama_level }}</td>
+                                            <td>{{ $data->keterangan }}</td>
                                             <td>
                                                 <a href="{{ route('level.edit', $data->id) }}"
                                                     class="btn btn-xs bg-primary">

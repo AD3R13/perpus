@@ -56,7 +56,8 @@ class LevelController extends Controller
     public function update(Request $request, string $id)
     {
         Level::where('id', $id)->update([
-            "nama_level" => $request->nama_level
+            "nama_level" => $request->nama_level,
+            "keterangan" => $request->keterangan
         ]);
         return redirect()->to('level');
     }

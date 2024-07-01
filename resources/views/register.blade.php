@@ -27,7 +27,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Register</title>
+    <title>Register Perpustakaan</title>
 
     <meta name="description" content="" />
 
@@ -55,7 +55,7 @@
               @include('sweetalert::alert')
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
+                <a href="#" class="app-brand-link gap-2">
                     <span class="app-brand-logo demo">
                         <svg
                           width="25"
@@ -116,11 +116,10 @@
               </div>
               <!-- /Logo -->
               <p class="mb-4">Register now and log in immediately 🚀</p>
-
               <form id="formAuthentication" class="mb-3" action="{{ 'actionRegister' }}" method="POST">
                 @csrf
                 <div class="mb-3">
-                  <label for="username" class="form-label">Name</label>
+                <label for="username" class="form-label">Name</label>
                   <input
                     type="text"
                     class="form-control"
@@ -162,24 +161,24 @@
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
-                <div class="mb-3">
-                  <label for="username" class="form-label">Usertype</label>
-                  <select class="form-control" name="id_level" id="id_level" class="form-select"
-                                        aria-label="Default select example">
-                                        <option selected>Choose a usertype</option>
-                                        @foreach ($level as $data)
-<option value="{{ $data->id }}">{{ $data->nama_level }}</option>
+          <div class="mb-3">
+                  <label for="username" class="form-label">USERTYPE</label>
+                  <select class="form-control form-select" name="id_level" id="id_level" aria-label="Contoh pilihan default">
+                      @foreach ($level as $data)
+@if ($data->nama_level == 'User')
+<option value="{{ $data->id }}" selected><b><i>{{ $data->nama_level }}</i></b></option>
+@endif
 @endforeach
                   </select>
-                </div>
+              </div>
                 <div class="mb-3">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                    <label class="form-check-label" for="terms-conditions">
+                   <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                  <label class="form-check-label" for="terms-conditions">
                       I agree to
-                      <a href="javascript:void(0);">privacy policy & terms</a>
-                    </label>
-                  </div>
+                    <a href="javascript:void(0);">privacy policy & terms</a>
+                  </label>
+                </div>
                 </div>
                 <button type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
               </form>

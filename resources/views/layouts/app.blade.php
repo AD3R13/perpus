@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Templates UJK</title>
+    <title>Perpustakaan</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
     {{-- > ! Favicons ! < --}}
     @include('layouts.inc.favicon')

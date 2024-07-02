@@ -14,7 +14,7 @@
                     <div class="chart-container" style="min-height: 475px">
                         <div class="table-responsive">
                             <form class="justify-content-center" action="{{ route('pengguna.update', $edit->id) }}"
-                                method="post">
+                                method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group mb-3">
@@ -41,7 +41,7 @@
                                         aria-label="Default select example">
                                         <option selected>Choose a usertype</option>
                                         @foreach ($level as $du)
-                                            <option value="{{ $du->id }}">{{ $du->nama_level }}</option>
+                                            <option value="{{ $du->id }}" required>{{ $du->nama_level }}</option>
                                         @endforeach
                                     </select>
                                 </div>

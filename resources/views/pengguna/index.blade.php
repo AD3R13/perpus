@@ -22,7 +22,7 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Level</th>
+                                        <th>Usertype</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>

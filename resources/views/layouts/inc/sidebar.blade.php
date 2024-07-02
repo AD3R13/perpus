@@ -57,25 +57,37 @@
                                 <li>
                                     <a href="{{ route('pengguna.index') }}">
                                         <i class="fas fa-user-edit"></i>
-                                        <span> Daftar Pengguna</span>
+                                        <span>Data Pengguna</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('anggota.index') }}">
+                                        <i class="fas fa-user-friends"></i>
+                                        <span>Data Anggota</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('level.index') }}">
                                         <i class="fas fa-tasks"></i>
-                                        <span>Level</span>
+                                        <span>Data Level</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('jurusan.index') }}">
                                         <i class="fas fa-list-ol"></i>
-                                        <span>Jurusan</span>
+                                        <span>Data Jurusan</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('gelombang.index') }}">
                                         <i class="far fa-chart-bar"></i>
-                                        <span>Gelombang</span>
+                                        <span>Data Gelombang</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('buku.index') }}">
+                                        <i class="fa fa-book"></i>
+                                        <span>Data Buku</span>
                                     </a>
                                 </li>
                             </ul>

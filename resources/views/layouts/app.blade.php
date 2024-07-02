@@ -138,7 +138,7 @@
                 event.preventDefault();
                 const swalButton = swal.mixin({
                     customClass: {
-                        confirmButton: 'btn btn-success',
+                        confirmButton: 'btn btn-success mr-2',
                         cancelButton: 'btn btn-danger mr-2',
                     },
                     buttonsStyling: false,
@@ -149,6 +149,8 @@
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonText: 'Ya, Hapus!',
+                    confirmButtonClass: 'mr-2',
+                    cancelButtonClass: 'mr-2',
                     cancelButtonText: 'Tidak, Dibatalkan?',
                     reverseButtons: true,
                 }).then((result) => {

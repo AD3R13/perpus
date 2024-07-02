@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
     @csrf
-    <h1 class="text-center">DATA LEVEL</h1>
+    <h1 class="text-center">DATA BUKU</h1>
     <div class="row">
         <div class="col-md-8 col-lg-12">
             <div class="card card-round">
                 <div class="card-header">
                     <div class="card-head-row">
                         <div align="left" class="mb-3">
-                            <a href="{{ route('level.create') }}" class="btn btn-primary btn-round"><i
+                            <a href="{{ route('anggota.create') }}" class="btn btn-primary btn-round"><i
                                     class="fas fa-plus"></i> Add</a>
                         </div>
                     </div>
@@ -20,23 +20,27 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>No Telepon</th>
                                         <th>Usertype</th>
-                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($datas as $data)
+                                    @foreach ($user as $user)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $data->nama_level }}</td>
-                                            <td>{{ $data->keterangan }}</td>
+                                            <td>{{ $user->nama_anggota }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->no_tlp }}</td>
+                                            <td>{{ $user->level->nama_level }}</td>
                                             <td>
-                                                <a href="{{ route('level.edit', $data->id) }}"
+                                                <a href="{{ route('anggota.edit', $user->id) }}"
                                                     class="btn btn-xs bg-primary">
                                                     <i class="fas fa-edit"> Edit</i>
                                                 </a>
-                                                <form action="{{ route('level.destroy', $data->id) }}" method="POST"
+                                                <form action="{{ route('anggota.destroy', $user->id) }}" method="POST"
                                                     class="d-inline">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">

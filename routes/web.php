@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\BukuController;
 use App\Http\Controllers\GelombangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -28,4 +30,6 @@ Route::middleware(['auth', 'administrator'])->group(function () {
     Route::resource('level', LevelController::class);
     Route::resource('jurusan', JurusanController::class);
     Route::resource('gelombang', GelombangController::class);
+    Route::resource('anggota', AnggotaController::class);
+    Route::resource('buku', BukuController::class);
 });

@@ -13,12 +13,12 @@
                 <div class="card-body">
                     <div class="chart-container" style="min-height: 475px">
                         <div class="table-responsive">
-                            <form class="justify-content-center" action="{{ route('jurusan.store') }}" method="post">
+                            <form class="justify-content-center" action="{{ route('jurusan.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="">Jurusan</label>
                                     <input type="text" name="nama_jurusan" placeholder="Input your jurusan"
-                                        class="form-control" required value="">
+                                        class="form-control" value="" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <input type="submit" class="btn btn-primary" value="Simpan">

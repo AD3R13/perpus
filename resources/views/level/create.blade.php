@@ -13,16 +13,16 @@
                 <div class="card-body">
                     <div class="chart-container" style="min-height: 475px">
                         <div class="table-responsive">
-                            <form class="justify-content-center" action="{{ route('level.store') }}" method="post">
+                            <form class="justify-content-center" action="{{ route('level.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="">Usertype</label>
                                     <input type="text" name="nama_level" placeholder="Input your usertype"
-                                        class="form-control" required value="">
+                                        class="form-control" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="">Keterangan</label>
-                                    <textarea type="text" name="keterangan" class="form-control"></textarea>
+                                    <textarea type="text" name="keterangan" class="form-control" required></textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <input type="submit" class="btn btn-primary" value="Simpan">

@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('penggunas', function (Blueprint $table) {
+        Schema::create('peminjams', function (Blueprint $table) {
+            $table->id();
+            $table->integer('id_anggota');
+            $table->string('no_transaksi');
+            $table->timestamps();
             $table->softDeletes();
         });
     }
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('penggunas', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('peminjams');
     }
 };

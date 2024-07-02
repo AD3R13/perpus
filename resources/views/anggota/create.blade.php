@@ -8,17 +8,17 @@
                         <div align="left" class="mb-3">
                         </div>
                     </div>
-                    <h1 class="text-center">TAMBAH PENGGUNA</h1>
+                    <h1 class="text-center">TAMBAH ANGGOTA</h1>
                 </div>
                 <div class="card-body">
                     <div class="chart-container" style="min-height: 475px">
                         <div class="table-responsive">
-                            <form class="justify-content-center" action="{{ route('pengguna.store') }}" method="POST">
+                            <form class="justify-content-center" action="{{ route('anggota.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group mb-3">
-                                    <label for="">Nama</label>
-                                    <input type="text" name="name" placeholder="Input your name" class="form-control"
-                                        required>
+                                    <label for="">Nama Anggota</label>
+                                    <input type="text" name="nama_anggota" placeholder="Input your name"
+                                        class="form-control" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="">Email</label>
@@ -26,14 +26,9 @@
                                         required>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="">Password</label>
-                                    <input type="password" name="password" placeholder="********" class="form-control"
-                                        required>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="">Re-Password</label>
-                                    <input type="password" name="password" placeholder="********" class="form-control"
-                                        required>
+                                    <label for="">No Telepon</label>
+                                    <input type="number" name="no_tlp" placeholder="Input your number"
+                                        class="form-control" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="">Usertype</label>
@@ -41,7 +36,10 @@
                                         aria-label="Default select example">
                                         <option selected>Choose a usertype</option>
                                         @foreach ($level as $data)
-                                            <option value="{{ $data->id }}" required>{{ $data->nama_level }}</option>
+                                            @if ($data->nama_level == 'User')
+                                                <option value="{{ $data->id }}" required>{{ $data->nama_level }}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>

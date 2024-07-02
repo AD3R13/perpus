@@ -14,13 +14,13 @@
                     <div class="chart-container" style="min-height: 475px">
                         <div class="table-responsive">
                             <form class="justify-content-center" action="{{ route('jurusan.update', $edit->id) }}"
-                                method="post">
+                                method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group mb-3">
                                     <label for="">Jurusan</label>
                                     <input type="text" name="nama_jurusan" value="{{ $edit->nama_jurusan }}"
-                                        class="form-control" required value="">
+                                        class="form-control" value="" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <input type="submit" class="btn btn-primary" value="Simpan">

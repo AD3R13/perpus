@@ -13,12 +13,12 @@
                 <div class="card-body">
                     <div class="chart-container" style="min-height: 475px">
                         <div class="table-responsive">
-                            <form class="justify-content-center" action="{{ route('gelombang.store') }}" method="post">
+                            <form class="justify-content-center" action="{{ route('gelombang.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <label for="">Gelombang</label>
                                     <input type="text" name="nama_gelombang" placeholder="Input your gelombang"
-                                        class="form-control" required value="">
+                                        class="form-control" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <input type="submit" class="btn btn-primary" value="Simpan">

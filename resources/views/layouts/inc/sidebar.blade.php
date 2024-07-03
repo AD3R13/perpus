@@ -1,7 +1,7 @@
-<div class="sidebar" data-background-color="dark">
+<div class="sidebar" data-background-color="white">
     <div class="sidebar-logo">
         <!-- Logo Header -->
-        <div class="logo-header" data-background-color="dark">
+        <div class="logo-header" data-background-color="dark2">
             <a href="#" class="logo">
                 <img src="{{ asset('assets/kai/assets/img/kaiadmin/logo_light.svg') }}" alt="navbar brand"
                     class="navbar-brand" height="20" />
@@ -57,37 +57,37 @@
                                 <li>
                                     <a href="{{ route('pengguna.index') }}">
                                         <i class="fas fa-user-edit"></i>
-                                        <span>Data Pengguna</span>
+                                        <span>Data Users</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('anggota.index') }}">
                                         <i class="fas fa-user-friends"></i>
-                                        <span>Data Anggota</span>
+                                        <span>Data Members</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('level.index') }}">
                                         <i class="fas fa-tasks"></i>
-                                        <span>Data Level</span>
+                                        <span>Data Levels</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('jurusan.index') }}">
                                         <i class="fas fa-list-ol"></i>
-                                        <span>Data Jurusan</span>
+                                        <span>Data Majors</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('gelombang.index') }}">
                                         <i class="far fa-chart-bar"></i>
-                                        <span>Data Gelombang</span>
+                                        <span>Data Wavess</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('buku.index') }}">
                                         <i class="fa fa-book"></i>
-                                        <span>Data Buku</span>
+                                        <span>Data Books</span>
                                     </a>
                                 </li>
                             </ul>
@@ -97,24 +97,23 @@
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#sidebarLayouts">
                         <i class="fas fa-database"></i>
-                        <p>Base Pendaftar</p>
+                        <p>Base Transaction</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse" id="sidebarLayouts">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="sidebar-style-2.html">
-                                    <i class="fas fa-users"></i>
-                                    <span>Data Peserta</span>
+                                <a href="{{ route('peminjam.index') }}">
+                                    <i class="fas fa-money-check-alt"></i>
+                                    <span>Data Transaction</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-
                 <li class="nav-item">
                     <a data-bs-toggle="collapse" href="#forms">
-                        <i class="fas fa-clock"></i>
+                        <i class="fa fa-history"></i>
                         <p>Data History</p>
                         <span class="caret"></span>
                     </a>
@@ -123,7 +122,7 @@
                             <li>
                                 <a href="forms/forms.html">
                                     <i class="far fa-clock"></i>
-                                    <span>Riwayat Peserta</span>
+                                    <span>Participant History</span>
                                 </a>
                             </li>
                         </ul>

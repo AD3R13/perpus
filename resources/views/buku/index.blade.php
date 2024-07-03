@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <div class="card-head-row">
                         <div align="left" class="mb-3">
-                            <a href="{{ route('buku.create') }}" class="btn btn-primary btn-round"><i class="fas fa-plus"></i>
+                            <a href="{{ route('buku.create') }}" class="btn btn-success btn-round"><i class="fas fa-plus"></i>
                                 Add</a>
                         </div>
                     </div>

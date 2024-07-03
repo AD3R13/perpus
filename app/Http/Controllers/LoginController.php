@@ -25,7 +25,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->to('home');
+            return redirect()->to('dashboard');
 
             // if ($user->usertype == "admin-pelatihan") {
             //     $request->session()->regenerate();
@@ -37,7 +37,7 @@ class LoginController extends Controller
         }
 
         // Jika login gagal
-        Alert::info('<i>LOGIN GAGAL!</i>', 'Periksa kembali email dan password Anda!');
+        Alert::info('LOGIN GAGAL!', 'Periksa kembali email dan password Anda!');
         return back()->withInput($request->only('email'));
     }
 

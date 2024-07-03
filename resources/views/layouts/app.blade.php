@@ -15,6 +15,7 @@
 
 <body>
     <div class="wrapper">
+
         <!-- Sidebar -->
         @include('layouts.inc.sidebar')
         <!-- End Sidebar -->
@@ -22,6 +23,7 @@
         <div class="main-panel">
             <div class="main-header">
                 <div class="main-header-logo">
+
                     <!-- Logo Header -->
                     <div class="logo-header" data-background-color="dark">
                         <a href="index.html" class="logo">
@@ -40,25 +42,81 @@
                             <i class="gg-more-vertical-alt"></i>
                         </button>
                     </div>
-                    <!-- End Logo Header -->
                 </div>
+                <!-- End Logo Header -->
+
                 <!-- Navbar Header -->
                 @include('layouts.inc.navbar')
                 <!-- End Navbar -->
+
             </div>
             <div class="container">
                 <div class="row">
                     <div class="page-inner">
                         <div class="d-flex align-items-left align-items-md flex-column flex-md-col pt-2 pb-4">
-                            <div class="content">
-                                @yield('content')
-                            </div>
+                            <section class="content">
+                                <!-- Default box -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col-6 align-item-center">
+                                                <h4>@yield('title')</h4>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="card-tools" align="right">
+                                                    <button type="button" class="btn btn-tool btn-collapse collapsed"
+                                                        data-card-widget="collapse" title="Collapse">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                    <button type="button" class="btn btn-tool btn-remove"
+                                                        data-card-widget="remove" title="Remove">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                    {{-- <h3 ></h3> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <style>
+                                            .btn-collapse {
+                                                color: #1e7e34;
+                                            }
+
+                                            .btn-collapse:visited {
+                                                background-color: #1e7e34;
+                                                border-color: rgb(60, 255, 0);
+                                            }
+
+                                            .btn-remove {
+                                                color: #c82333;
+                                            }
+
+                                            .btn-remove:visited {
+                                                background-color: #c82333;
+                                                border-color: rgb(255, 0, 0);
+                                            }
+                                        </style>
+                                    </div>
+                                    <div class="card-body">
+                                        @yield('content')
+                                    </div>
+
+                                    <!-- /.card-body -->
+                                    <div class="card-footer">
+                                        <i><b>Perpustakaan</b></i>
+                                    </div>
+
+                                    <!-- /.card-footer-->
+                                </div>
+
+                                <!-- /.card -->
+                            </section>
                         </div>
                     </div>
                 </div>
-
-                {{-- > FOOTER! < --}}
             </div>
+
+            {{-- > FOOTER! < --}}
             @include('layouts.inc.footer')
 
             <!-- Custom template | don't include it in your project! -->
@@ -125,11 +183,13 @@
                     <i class="icon-settings"></i>
                 </div>
             </div>
-            <!-- End Custom template -->
         </div>
+        <!-- End Custom template -->
+
         <!--   Core JS Files   -->
         @include('layouts.inc.js')
         @include('sweetalert::alert')
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script>
             $('.show_confirm').click(function(event) {
                 let form = $(this).closest("form");

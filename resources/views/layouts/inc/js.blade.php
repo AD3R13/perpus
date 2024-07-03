@@ -32,7 +32,30 @@
 
 <!-- Kaiadmin DEMO methods, don't include it in your project! -->
 <script src="{{ asset('assets/kai/assets/js/setting-demo.js') }}"></script>
+
+<!-- jQuery -->
+<script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {{-- <script src="{{ asset('assets/kai/assets/js/demo.js') }}"></script>
 <script>
     $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {

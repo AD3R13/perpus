@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\AnggotaController;
-use App\Http\Controllers\BukuController;
-use App\Http\Controllers\GelombangController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BukuController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\GelombangController;
+use App\Http\Controllers\PeminjamController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -24,6 +25,7 @@ Route::post('actionRegister', [LoginController::class, 'actionRegister'])->name(
 Route::post('actionLogin', [LoginController::class, 'actionLogin'])->name('actionLogin');
 Route::post('actionLogout', [LoginController::class, 'actionLogout'])->name('actionLogout');
 
+
 Route::middleware(['auth', 'administrator'])->group(function () {
 
     Route::resource('pengguna', PenggunaController::class);
@@ -33,3 +35,4 @@ Route::middleware(['auth', 'administrator'])->group(function () {
     Route::resource('anggota', AnggotaController::class);
     Route::resource('buku', BukuController::class);
 });
+Route::resource('peminjam', PeminjamController::class);

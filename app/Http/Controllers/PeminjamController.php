@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buku;
 use App\Models\Anggota;
 use App\Models\Peminjam;
+use App\Models\DetailPeminjam;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PeminjamController extends Controller
@@ -14,8 +17,10 @@ class PeminjamController extends Controller
      */
     public function index()
     {
-        $user = Peminjam::get();
-        return view('peminjam.index', compact('user'));
+        $users = Peminjam::with('anggota')->get();
+        // $user = Anggota::get();
+        // $user = Peminjam::get();
+        return view('peminjam.index', compact('users'));
     }
 
     /**
@@ -23,14 +28,37 @@ class PeminjamController extends Controller
      */
     public function create()
     {
+        $kode_transaksi = Peminjam::orderBy('id', 'desc')->first();
+        if (isset($kode_transaksi)) {
+            $urutan = $kode_transaksi->id;
+        } else {
+            $urutan = 0;
+        }
+        $huruf = "TR";
+        // $urutan = $kode_transaksi->id;
+        $urutan++;
+        $kode_transaksi = $huruf . date('dmY') . sprintf('%03s', $urutan);
         $data = Anggota::orderBy('id', 'desc')->get();
-        return view('peminjam.create', compact('data'));
+        $buku = Buku::get();
+        return view('peminjam.create', compact('data', 'kode_transaksi', 'buku'));
     }
     public function store(Request $request)
     {
-        Peminjam::create($request->all());
-        Alert::success('Daftar berhasil', 'Success Message!');
-        return redirect()->to('peminjam')->with('success', 'Daftar berhasil');
+        // return $request;
+        $peminjam = Peminjam::create([
+            'id_anggota' => $request->id_anggota,
+            'no_transaksi' => $request->no_transaksi,
+        ]);
+
+        foreach ($request->id_buku as $index => $id_buku) {
+            DetailPeminjam::create([
+                'id_peminjam' => $peminjam->id,
+                'id_buku' => $id_buku,
+                'tanggal_pinjam' => $request->tanggal_pinjam[$index],
+                'tanggal_kembali' => $request->tanggal_kembali[$index],
+            ]);
+        };
+        return redirect()->to('peminjam');
     }
 
     /**
@@ -45,7 +73,7 @@ class PeminjamController extends Controller
     {
         Peminjam::where('id', $id)->update([
             "id_anggota" => $request->id_anggota,
-            "no_peminjam" => $request->no_Peminjam
+            "no_transaksi" => $request->no_transaksi
         ]);
         Alert::info('Data telah diubah', 'Success Message!');
         return redirect()->to('peminjam')->with('info', 'Berhasil diubah');

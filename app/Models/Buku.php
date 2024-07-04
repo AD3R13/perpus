@@ -10,5 +10,5 @@ class Buku extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['nama_Buku', 'penerbit', 'qty', 'deskripsi', 'penulis', 'genre'];
+    protected $fillable = ['nama_buku', 'penerbit', 'qty', 'deskripsi', 'penulis', 'genre'];
 }

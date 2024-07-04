@@ -33,7 +33,7 @@
                                 <div class="form-group mb-3">
                                     <label for="">Deskripsi</label>
                                     <input type="text" name="deskripsi" placeholder="Input your deskripsi"
-                                        class="form-control" required>
+                                        class="form-control">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="">Penulis</label>

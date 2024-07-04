@@ -1,7 +1,7 @@
 @extends('layouts.app')
+@section('title', 'MEMBER DATA')
 @section('content')
     @csrf
-    <h1 class="text-center">DATA BUKU</h1>
     <div class="row">
         <div class="col-md-8 col-lg-12">
             <div class="card card-round">

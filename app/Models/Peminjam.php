@@ -10,5 +10,9 @@ class Peminjam extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['nama_Peminjam', 'penerbit', 'qty', 'deskripsi', 'penulis', 'genre'];
+    protected $fillable = ['id_anggota', 'no_transaksi'];
+    public function anggota()
+    {
+        return $this->belongsTo(Anggota::class, 'id_anggota', 'id');
+    }
 }

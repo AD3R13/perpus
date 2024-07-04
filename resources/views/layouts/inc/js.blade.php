@@ -41,7 +41,62 @@
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
+@include('sweetalert::alert')
+<script>
+    $('.btn-add').click(function() {
+        let tbody = $('tbody');
+        let newTr = "<tr>";
+        newTr += "<td>";
+        newTr += "<select name='id_buku[]' class='form-control'>";
+        newTr += "<option value='' disable hidden required>Choose a book</option>";
+        @foreach ($buku as $buku)
+            newTr += "<option value={{ $buku->id }}>{{ $buku->nama_buku }}</option>";
+        @endforeach
+        newTr += "</select>";
+        newTr += "</td>";
+        newTr += "<td><input type='date' name='tanggal_pinjam[]' class='form-control' required></td>";
+        newTr += "<td><input type='date' name='tanggal_kembali[]' class='form-control' required></td>";
+        newTr += "<td>Hapus</td>";
+        newTr += "</tr>";
+        tbody.append(newTr);
+    });
+</script>
+<script>
+    $('.show_confirm').click(function(event) {
+        let form = $(this).closest("form");
+        let name = $(this).data("name");
 
+        event.preventDefault();
+        const swalButton = swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success mr-2',
+                cancelButton: 'btn btn-danger mr-2',
+            },
+            buttonsStyling: false,
+        });
+        swalButton.fire({
+            title: 'Apakah anda yakin?',
+            text: "akan menghapus data ini?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Hapus!',
+            confirmButtonClass: 'mr-2',
+            cancelButtonClass: 'mr-2',
+            cancelButtonText: 'Tidak, Dibatalkan?',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            } else if (result.dismiss === swal.Button.getDismissReason.cancel) {
+                swalButton.fire(
+                    'Dibatalkan',
+                    'Data Anda aman :)',
+                    'error'
+                )
+            }
+        });
+    });
+</script>
 
 
 

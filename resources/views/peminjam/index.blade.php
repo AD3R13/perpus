@@ -16,10 +16,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($user as $user)
+                @foreach ($users as $user)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $user->id_anggota }}</td>
+                        <td>{{ $user->anggota->nama_anggota }}</td>
                         <td>{{ $user->no_transaksi }}</td>
                         <td>
                             <a href="{{ route('peminjam.edit', $user->id) }}" class="btn btn-xs bg-primary">

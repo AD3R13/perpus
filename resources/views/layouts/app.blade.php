@@ -1,3 +1,8 @@
+<?php
+use App\Models\Buku;
+$buku = Buku::get();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +20,6 @@
 
 <body>
     <div class="wrapper">
-
         <!-- Sidebar -->
         @include('layouts.inc.sidebar')
         <!-- End Sidebar -->
@@ -59,8 +63,8 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <div class="row">
-                                            <div class="col-6 align-item-center">
-                                                <h4>@yield('title')</h4>
+                                            <div class="col-6" align="left">
+                                                <h4><b>@yield('title')</b></h4>
                                             </div>
                                             <div class="col-6">
                                                 <div class="card-tools" align="right">
@@ -72,7 +76,6 @@
                                                         data-card-widget="remove" title="Remove">
                                                         <i class="fas fa-times"></i>
                                                     </button>
-                                                    {{-- <h3 ></h3> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -102,11 +105,11 @@
                                     </div>
 
                                     <!-- /.card-body -->
-                                    <div class="card-footer">
-                                        <i><b>Perpustakaan</b></i>
-                                    </div>
 
                                     <!-- /.card-footer-->
+                                    <div class="card-footer">
+                                        <h6><i><b>Perpustakaan</b></i></h6>
+                                    </div>
                                 </div>
 
                                 <!-- /.card -->
@@ -188,44 +191,7 @@
 
         <!--   Core JS Files   -->
         @include('layouts.inc.js')
-        @include('sweetalert::alert')
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-        <script>
-            $('.show_confirm').click(function(event) {
-                let form = $(this).closest("form");
-                let name = $(this).data("name");
 
-                event.preventDefault();
-                const swalButton = swal.mixin({
-                    customClass: {
-                        confirmButton: 'btn btn-success mr-2',
-                        cancelButton: 'btn btn-danger mr-2',
-                    },
-                    buttonsStyling: false,
-                });
-                swalButton.fire({
-                    title: 'Apakah anda yakin?',
-                    text: "akan menghapus data ini?",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonText: 'Ya, Hapus!',
-                    confirmButtonClass: 'mr-2',
-                    cancelButtonClass: 'mr-2',
-                    cancelButtonText: 'Tidak, Dibatalkan?',
-                    reverseButtons: true,
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        form.submit();
-                    } else if (result.dismiss === swal.Button.getDismissReason.cancel) {
-                        swalButton.fire(
-                            'Dibatalkan',
-                            'Data Anda aman :)',
-                            'error'
-                        )
-                    }
-                });
-            });
-        </script>
 </body>
 
 </html>

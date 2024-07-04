@@ -43,9 +43,11 @@ class BukuController extends Controller
     {
         Buku::where('id', $id)->update([
             "nama_buku" => $request->nama_buku,
-            "email" => $request->email,
-            "no_tlp" => $request->no_tlp,
-            "id_level" => $request->id_level,
+            "penerbit" => $request->penerbit,
+            "qty" => $request->qty,
+            "deskripsi" => $request->deskripsi,
+            "penulis" => $request->penulis,
+            "genre" => $request->genre,
         ]);
         Alert::info('Data telah diubah', 'Success Message!');
         return redirect()->to('buku')->with('info', 'Berhasil diubah');

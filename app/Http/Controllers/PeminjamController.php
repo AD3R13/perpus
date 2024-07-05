@@ -8,6 +8,7 @@ use App\Models\Peminjam;
 use App\Models\DetailPeminjam;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PHPUnit\TextUI\Configuration\Php;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PeminjamController extends Controller
@@ -35,30 +36,36 @@ class PeminjamController extends Controller
             $urutan = 0;
         }
         $huruf = "TR";
-        // $urutan = $kode_transaksi->id;
         $urutan++;
-        $kode_transaksi = $huruf . date('dmY') . sprintf('%03s', $urutan);
+        date_default_timezone_set("Asia/Jakarta");
+        $kode_transaksi = $huruf . date('-dmY-H:i-') . sprintf('%03s', $urutan);
         $data = Anggota::orderBy('id', 'desc')->get();
         $buku = Buku::get();
+
         return view('peminjam.create', compact('data', 'kode_transaksi', 'buku'));
     }
     public function store(Request $request)
     {
-        // return $request;
-        $peminjam = Peminjam::create([
-            'id_anggota' => $request->id_anggota,
-            'no_transaksi' => $request->no_transaksi,
-        ]);
-
-        foreach ($request->id_buku as $index => $id_buku) {
-            DetailPeminjam::create([
-                'id_peminjam' => $peminjam->id,
-                'id_buku' => $id_buku,
-                'tanggal_pinjam' => $request->tanggal_pinjam[$index],
-                'tanggal_kembali' => $request->tanggal_kembali[$index],
+        if ($request->id_buku) {
+            $peminjam = Peminjam::create([
+                'id_anggota' => $request->id_anggota,
+                'no_transaksi' => $request->no_transaksi,
             ]);
-        };
-        return redirect()->to('peminjam');
+            foreach ($request->id_buku as $index => $id_buku) {
+                DetailPeminjam::create([
+                    'id_peminjam' => $peminjam->id,
+                    'id_buku' => $id_buku,
+                    'tanggal_pinjam' => $request->tanggal_pinjam[$index],
+                    'tanggal_kembali' => $request->tanggal_kembali[$index],
+                    'keterangan' => $request->keterangan,
+                ]);
+            };
+            Alert::success('Added borrower data', 'Success Message!');
+            return redirect()->to('peminjam')->with('success', 'Successfully added borrower data');
+        } else {
+            alert()->info('Clicked to (+ Add)! <=', 'Added borrower data');
+            return redirect()->back()->with('error', 'Please select a book');
+        }
     }
 
     /**

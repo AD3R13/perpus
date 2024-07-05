@@ -11,16 +11,17 @@
                         <label for="">Member name</label>
                         <div class="row">
                             <div class="col-md-3">
-                                <select class="form-control" name="id_anggota" required>
-                                    <option>Choose a member</option>
+                                <select id="id_anggota" class="form-control" name="id_anggota" required>
+                                    <option value="" hidden>Choose a member</option>
                                     @foreach ($data as $d)
                                         <option value="{{ $d->id }}">{{ $d->nama_anggota }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div align="left" class="col-md-3">
-                                <a href="{{ route('anggota.create') }}" class="btn btn-success btn-sm btn-round"><i
-                                        class="fas fa-plus"></i><b> New Member</b></a>
+                                <a href="{{ route('anggota.create') }}" type="button"
+                                    class="btn btn-success btn-sm btn-round"><b><i class="fas fa-plus">
+                                            New Member</i></b></a>
                             </div>
                         </div>
                     </div>
@@ -34,8 +35,8 @@
                         </div>
                         <div class="table-transaction">
                             <div align="right" class="mb-3">
-                                <button type="button" class="btn btn-success btn-sm btn-add"><i class="fas fa-plus">
-                                        Add</i></button>
+                                <a type="button" class="btn btn-success btn-sm btn-add" required><i class="fas fa-plus">
+                                        Add</i></a>
                             </div>
                             <table class="table table-bordered">
                                 <thead>
@@ -43,6 +44,7 @@
                                         <th>Book Name</th>
                                         <th>Loan of Date</th>
                                         <th>Loan of Return</th>
+                                        <th>Keterangan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -52,7 +54,7 @@
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <input type="submit" class="btn btn-primary" value="Save">
+                        <button type="submit" class="btn btn-primary">Save</button>
                         <a href="{{ url()->previous() }}" class="btn btn-info">Back</a>
                         <input type="reset" class="btn btn-danger" value="Cancel">
                     </div>

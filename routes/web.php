@@ -7,9 +7,9 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\PeminjamController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\GelombangController;
-use App\Http\Controllers\PeminjamController;
 
 // Route::get('/', function () {
 //     return view('welcome');

@@ -1,28 +1,34 @@
 @extends('layouts.app')
-@section('title', 'TRANSACTION DATA')
+@section('title', 'BORROWER DETAIL')
 @section('content')
     @csrf
     <div class="table-responsive">
         <div align="left" class="mb-3">
-            <a href="{{ route('peminjam.create') }}" class="btn btn-success btn-round"><i class="fas fa-plus"></i> Add</a>
+            <a href="#" class="btn btn-success btn-round"><i class="fas fa-plus"></i> Print</a>
         </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Member Name</th>
-                    <th>No Transaction</th>
+                    <th>Book Name</th>
+                    <th>Date of Loan</th>
+                    <th>Date of Return</th>
+                    <th>Keterangan</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
+                @foreach ($user as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $user->anggota->nama_anggota }}</td>
-                        <td>{{ $user->no_transaksi }}</td>
+                        <td>{{ $item->anggota->nama_anggota }}</td>
+                        <td>{{ $item->buku->nama_buku }}</td>
+                        <td>{{ $item->tanggal_pinjam }}</td>
+                        <td>{{ $item->tanggal_pengembalian }}</td>
+                        <td>{{ $item->keterangan }}</td>
                         <td>
-                            <a href="{{ route('peminjam.edit', $user->id) }}" class="btn btn-xs bg-primary">
+                            {{-- <a href="{{ route('peminjam.edit', $user->id) }}" class="btn btn-xs bg-primary">
                                 <i class="fas fa-edit"> Edit</i>
                             </a>
                             <form action="{{ route('peminjam.destroy', $user->id) }}" method="POST" class="d-inline">
@@ -34,7 +40,7 @@
                             </form>
                             <a href="" class="btn btn-xs bg-light border border-dark text-dark">
                                 <i class="fas fa-file-alt"></i> Detail
-                            </a>
+                            </a> --}}
                         </td>
                     </tr>
                 @endforeach

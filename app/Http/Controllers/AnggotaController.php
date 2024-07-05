@@ -69,7 +69,7 @@ class AnggotaController extends Controller
     public function destroy(string $id)
     {
         Anggota::where('id', $id)->delete();
-        toast('Data berhasil di hapus', 'success');
+        toast('Data berhasil di hapus', 'info');
         return redirect()->to('anggota')->with('success', 'Berhasil dihapus');
     }
 }

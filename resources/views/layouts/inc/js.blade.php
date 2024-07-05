@@ -40,15 +40,15 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
 @include('sweetalert::alert')
+
 <script>
     $('.btn-add').click(function() {
         let tbody = $('tbody');
         let newTr = "<tr>";
         newTr += "<td>";
-        newTr += "<select name='id_buku[]' class='form-control'>";
-        newTr += "<option value='' disable hidden required>Choose a book</option>";
+        newTr += "<select name='id_buku[]' class='form-control' required>";
+        newTr += "<option value='' selected hidden>Choose a book</option>";
         @foreach ($buku as $buku)
             newTr += "<option value={{ $buku->id }}>{{ $buku->nama_buku }}</option>";
         @endforeach
@@ -56,11 +56,13 @@
         newTr += "</td>";
         newTr += "<td><input type='date' name='tanggal_pinjam[]' class='form-control' required></td>";
         newTr += "<td><input type='date' name='tanggal_kembali[]' class='form-control' required></td>";
+        newTr += "<td><input type='text' name='keterangan' class='form-control'></td>";
         newTr += "<td>Hapus</td>";
         newTr += "</tr>";
         tbody.append(newTr);
     });
 </script>
+
 <script>
     $('.show_confirm').click(function(event) {
         let form = $(this).closest("form");

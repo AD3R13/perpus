@@ -42,6 +42,9 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 @include('sweetalert::alert')
 
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     $('.btn-add').click(function() {
         let tbody = $('tbody');
@@ -64,38 +67,27 @@
 </script>
 
 <script>
-    $('.show_confirm').click(function(event) {
-        let form = $(this).closest("form");
-        let name = $(this).data("name");
+    $(document).ready(function() {
+        $('.show_confirm').click(function(event) {
+            event.preventDefault(); // Prevent the default form submission
 
-        event.preventDefault();
-        const swalButton = swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-success mr-2',
-                cancelButton: 'btn btn-danger mr-2',
-            },
-            buttonsStyling: false,
-        });
-        swalButton.fire({
-            title: 'Apakah anda yakin?',
-            text: "akan menghapus data ini?",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Ya, Hapus!',
-            confirmButtonClass: 'mr-2',
-            cancelButtonClass: 'mr-2',
-            cancelButtonText: 'Tidak, Dibatalkan?',
-            reverseButtons: true,
-        }).then((result) => {
-            if (result.isConfirmed) {
-                form.submit();
-            } else if (result.dismiss === swal.Button.getDismissReason.cancel) {
-                swalButton.fire(
-                    'Dibatalkan',
-                    'Data Anda aman :)',
-                    'error'
-                )
-            }
+            let form = $(this).closest("form");
+            let name = $(this).data("name");
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "No, cancel!",
+                confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit(); // Submit the form if user confirms
+                }
+            });
         });
     });
 </script>

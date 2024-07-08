@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2024 at 11:49 AM
+-- Generation Time: Jul 08, 2024 at 11:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,8 +44,7 @@ CREATE TABLE `anggotas` (
 
 INSERT INTO `anggotas` (`id`, `id_level`, `nama_anggota`, `email`, `no_tlp`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 4, 'ADE RIANDI', 'aderiandi@gmail.com', '0891234567890', '2024-07-01 19:04:05', '2024-07-01 19:10:20', NULL),
-(2, 4, 'HAIKAL LISKYANSYACH', 'haikal@gmail.com', '0891234567891', '2024-07-03 23:56:30', '2024-07-04 19:23:13', NULL),
-(3, 4, 'KA MELA', 'kamela@gmail.com', '08912345678902', '2024-07-04 18:01:20', '2024-07-04 19:23:01', NULL);
+(2, 4, 'HAIKAL LISKYANSYACH', 'haikal@gmail.com', '0891234567891', '2024-07-03 23:56:30', '2024-07-04 19:23:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -117,6 +116,13 @@ CREATE TABLE `detail_peminjams` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `detail_peminjams`
+--
+
+INSERT INTO `detail_peminjams` (`id`, `id_peminjam`, `id_buku`, `tanggal_pinjam`, `tanggal_kembali`, `keterangan`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 1, '2024-07-08 00:00:00', '2024-07-19 00:00:00', NULL, '2024-07-07 19:50:48', '2024-07-07 19:50:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -311,6 +317,13 @@ CREATE TABLE `peminjams` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `peminjams`
+--
+
+INSERT INTO `peminjams` (`id`, `id_anggota`, `no_transaksi`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 'TR-08072024-09:50-001', '2024-07-07 19:50:48', '2024-07-07 19:50:48', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -331,8 +344,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('0j1LdH60TOyL34AcrA1Z7xsuKpmCGWWOQLY1hsaf', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiR21SOFZ5TXZkU1VpTk9NWWw2UHl4MUNpRFFYNGZYZzVqaDBTQkRyeiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9wZW1pbmphbS9jcmVhdGUiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6NToiYWxlcnQiO2E6MDp7fX0=', 1720169148),
-('YrRMM64sFfflkaSsc43ulo5ThVUCpKmlVhBqLRCU', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiZDk1bWk5MURWdDRIdjdQeFpkS09iOTAwN3lnaFV3TExLNzBCaG4wVyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7fX0=', 1720172965);
+('zHGThULhuQkCJViqJMHX7RYomAiHPrhkK3tYXzAV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOXBBSzZ3SjBHelhhaW5uMzRrdDZjQ3VKMHlyQ0VvOWxrcVo4enVlZSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9sb2dpbiI7fX0=', 1720432324);
 
 -- --------------------------------------------------------
 
@@ -361,8 +373,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `id_level`, `name`, `email`, `usertype`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 1, 'Administrator', 'administrator@gmail.com', 'administrator', NULL, '$2y$12$maUU5by4CcGIz0MfVunakuZcPx2fXff9HjfSiidJ8C4CMyLUyHAE2', NULL, '2024-06-25 23:29:18', '2024-06-25 23:29:18', NULL),
 (2, 2, 'Operator', 'operator@gmail.com', NULL, NULL, '$2y$12$1QFjUqLNAT8Y8aBZJUSJ5.tjkE4fu4JvuWGVjlOB3rKZSG484Ehmi', NULL, '2024-06-25 23:28:47', '2024-06-28 03:12:22', NULL),
-(3, 3, 'Kepala Sekolah', 'kepsek@gmail.com', NULL, NULL, '$2y$12$iYm2TH7NOPfhmvUqy7InXOpWLd/9UDgubqSWv9SkokKU7WUGZ0H1m', NULL, '2024-06-30 02:11:58', '2024-07-01 01:50:51', NULL),
-(53, 4, 'rian', 'rian@gmail.com', NULL, NULL, '$2y$12$ODu/7y2RHSGhY2cYHkJkHOnjDW1020LThIWh4FRksothSxk3bguj2', NULL, '2024-07-02 19:53:44', '2024-07-02 19:53:44', NULL);
+(3, 3, 'Kepala Sekolah', 'kepsek@gmail.com', NULL, NULL, '$2y$12$iYm2TH7NOPfhmvUqy7InXOpWLd/9UDgubqSWv9SkokKU7WUGZ0H1m', NULL, '2024-06-30 02:11:58', '2024-07-08 02:22:32', NULL),
+(54, 4, 'rian', 'rian@gmail.com', NULL, NULL, '$2y$12$ZVjkJJoQRXOvbPEaXORG6efOOnIa1LeQ2dANsP9AC2cEAuAy8O8US', NULL, '2024-07-08 02:02:42', '2024-07-08 02:18:14', NULL);
 
 --
 -- Indexes for dumped tables
@@ -489,7 +501,7 @@ ALTER TABLE `bukus`
 -- AUTO_INCREMENT for table `detail_peminjams`
 --
 ALTER TABLE `detail_peminjams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -531,13 +543,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `peminjams`
 --
 ALTER TABLE `peminjams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

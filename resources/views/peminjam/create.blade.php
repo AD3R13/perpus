@@ -1,13 +1,12 @@
 @extends('layouts.app')
 @section('title', 'TRANSACTION ADD')
 @section('content')
-    <form class="justify-content-center" action="{{ route('peminjam.store') }}" method="POST">
-        @csrf
-        <div class="table-responsive">
-            <div class="card-body">
-                <div class="chart-container" style="min-height: 300px">
+    <div class="table-responsive">
+        <div class="card-body">
+            <div class="chart-container" style="min-height: 300px">
+                <form class="justify-content-center" action="{{ route('peminjam.store') }}" method="POST">
+                    @csrf
                     <div class="form-group mb-3">
-                        @csrf
                         <label for="">Member name</label>
                         <div class="row">
                             <div class="col-md-3">
@@ -58,8 +57,8 @@
                         <a href="{{ url()->previous() }}" class="btn btn-info">Back</a>
                         <input type="reset" class="btn btn-danger" value="Cancel">
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
 @endsection

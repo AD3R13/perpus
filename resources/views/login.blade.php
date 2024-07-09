@@ -58,7 +58,7 @@
               @include('sweetalert::alert')
               <!-- Logo -->
               <div class="app-brand justify-content-center">
-                <a href="#" class="app-brand-link gap-2">
+                <a class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
                     <svg
                       width="25"
@@ -121,7 +121,7 @@
               <span class="brand-text demo fw-bolder">Welcome to this website! 👋</span>
               <p class="mb-4">Please sign-in to your account and start</p>
 
-              <form id="formAuthentication" class="mb-3" action="{{ route('actionLogin') }}" method="POST">
+<form id="formAuthentication" class="mb-3" action="{{ route('actionLogin') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>

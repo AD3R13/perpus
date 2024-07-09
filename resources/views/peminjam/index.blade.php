@@ -33,7 +33,7 @@
                                         @csrf
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button class="btn btn-xs btn-danger show_confirm" type="submit">
-                                            <i class="fas fa-trash"> Delete</i>
+                                            <i class="fas fa-trash-alt"> Delete</i>
                                         </button>
                                     </form>
                                     <a href="" class="btn btn-xs bg-light border border-dark text-dark">

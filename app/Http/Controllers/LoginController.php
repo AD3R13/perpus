@@ -26,31 +26,29 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             return redirect()->to('dashboard');
-
-            // if ($user->usertype == "admin-pelatihan") {
-            //     $request->session()->regenerate();
-            //     return redirect()->route('home', ['usertype' => $user->usertype]);
-            // } else if ($user->usertype == "administrator") {
-            //     $request->session()->regenerate();
-            //     return redirect()->route('home', ['usertype' => $user->usertype]);
-            // }
         }
 
         // Jika login gagal
-        Alert::info('LOGIN GAGAL!', 'Periksa kembali email dan password Anda!');
+        Alert::info('Login Gagal!', 'Periksa kembali email dan password anda!');
         return back()->withInput($request->only('email'));
     }
 
 
     /* ! LOGOUT ! */
+    public function logout()
+    {
+        return view('logout');
+    }
     public function actionLogout(Request $request)
     {
-        Auth::logout(); // Logout pengguna
-        $request->session()->invalidate(); // Menonaktifkan session pengguna
-        $request->session()->regenerateToken(); // Menghasilkan token baru untuk sesi
+        if (Auth::check()) {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
 
-        // Redirect ke halaman login
-        return redirect()->route('login');
+        // Redirect pengguna ke halaman login dengan pesan
+        return redirect()->route('login')->with('status', 'Anda telah berhasil logout.');
     }
 
 
@@ -73,6 +71,8 @@ class LoginController extends Controller
         Alert::success('Daftar berhasil', 'Success Message!');
         return redirect()->to('register')->with('success', 'Daftar berhasil');
     }
+
+
 
 
     /**
